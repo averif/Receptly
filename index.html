@@ -9,7 +9,7 @@
 <meta property="og:title" content="Receptly — A receptionist that never sleeps">
 <meta property="og:description" content="AI phone receptionist for clinics, salons and small offices. Books, confirms and reschedules appointments 24/7.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF6B00'/%3E%3Cpath d='M9 18v-4M13 21V11M17 19v-6M21 22V10M25 17v-2' stroke='%230A0A0A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='175 212 830 830'%3E%3Cpath d='M187 968L290 292Q300 232 362 232L740 234C885 236 993 345 993 492C993 620 915 742 802 787L946 966Q972 1022 920 1022L672 1022Q652 1022 640 1006L527 857L628 718L710 748L707 652L925 585L755 552L840 437L708 478L718 300L595 470L487 430L490 525L293 590L462 648L378 772L510 720L472 982Q465 1022 425 1022L230 1022Q182 1022 187 968Z' fill='%23FF5C00' stroke='%23FF5C00' stroke-width='16' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
   :root {
     --bg: #FAF9F6;
@@ -19,8 +19,8 @@
     --ink-2: #2A2926;
     --muted: #5E5B54;
     --line: #E7E3DA;
-    --accent: #FF6B00;
-    --accent-hover: #FF7F24;
+    --accent: #FF5C00;
+    --accent-hover: #FF7A2E;
     --accent-ink: #B34700;   /* accent for small text on cream — AA contrast */
     --accent-soft: #FFF0E5;
     --radius: 16px;
@@ -90,8 +90,8 @@
   }
   .btn:active { transform: translateY(1px) scale(.99); }
   /* Black text on orange: ~7:1 contrast (white on #FF6B00 fails WCAG AA) */
-  .btn-primary { background: var(--accent); color: var(--ink); box-shadow: 0 1px 0 rgba(255,255,255,.35) inset, 0 6px 20px -6px rgba(255,107,0,.55); }
-  .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 1px 0 rgba(255,255,255,.35) inset, 0 10px 28px -8px rgba(255,107,0,.65); }
+  .btn-primary { background: var(--accent); color: var(--ink); box-shadow: 0 1px 0 rgba(255,255,255,.35) inset, 0 6px 20px -6px rgba(255,92,0,.55); }
+  .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 1px 0 rgba(255,255,255,.35) inset, 0 10px 28px -8px rgba(255,92,0,.65); }
   .btn-dark { background: var(--ink); color: #fff; }
   .btn-dark:hover { background: #222; }
   .btn-sm { height: 38px; padding: 0 16px; font-size: 14px; }
@@ -110,7 +110,7 @@
   .nav.scrolled { border-bottom-color: var(--line); }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 19px; letter-spacing: -0.03em; }
-  .logo-mark { width: 28px; height: 28px; }
+  .logo-mark { width: 30px; height: 30px; flex: none; }
   .nav-links { display: flex; align-items: center; gap: 32px; }
   .nav-links a:not(.btn) { text-decoration: none; font-size: 14px; color: var(--muted); font-weight: 500; transition: color .15s; }
   .nav-links a:not(.btn):hover { color: var(--ink); }
@@ -134,7 +134,7 @@
   .hero { padding: 72px 0 96px; position: relative; overflow: hidden; }
   .hero::before {
     content: ""; position: absolute; inset: -20% -10% auto auto; width: 720px; height: 720px;
-    background: radial-gradient(closest-side, rgba(255,107,0,.12), rgba(255,107,0,0));
+    background: radial-gradient(closest-side, rgba(255,92,0,.12), rgba(255,92,0,0));
     pointer-events: none;
   }
   .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; position: relative; }
@@ -166,6 +166,8 @@
   .field.invalid { border-color: #C62828; }
   .form-error { color: #B71C1C; font-size: 13px; margin: 8px 0 0 18px; min-height: 0; }
   .form-error:empty { display: none; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .field .btn:disabled { opacity: .85; cursor: progress; }
   .trust { margin-top: 18px; font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 14px; }
   .trust span { display: inline-flex; align-items: center; gap: 6px; }
   .trust svg { width: 14px; height: 14px; color: var(--accent-ink); }
@@ -275,7 +277,7 @@
   .stats { background: var(--ink); color: #fff; padding: 96px 0; position: relative; overflow: hidden; }
   .stats::before {
     content: ""; position: absolute; left: 50%; top: 100%; width: 900px; height: 500px; transform: translate(-50%, -50%);
-    background: radial-gradient(closest-side, rgba(255,107,0,.25), transparent);
+    background: radial-gradient(closest-side, rgba(255,92,0,.25), transparent);
     pointer-events: none;
   }
   .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
@@ -356,7 +358,7 @@
   }
   .final-card::before {
     content: ""; position: absolute; left: 50%; top: 0; width: 800px; height: 400px; transform: translate(-50%, -55%);
-    background: radial-gradient(closest-side, rgba(255,107,0,.35), transparent); pointer-events: none;
+    background: radial-gradient(closest-side, rgba(255,92,0,.35), transparent); pointer-events: none;
   }
   .final-card > * { position: relative; }
   .final-card h2 { font-size: clamp(34px, 5vw, 56px); max-width: 16ch; margin: 0 auto; letter-spacing: -0.04em; }
@@ -470,7 +472,7 @@
 <!-- SVG icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="i-logo" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0A0A0A"/><path d="M9 18v-4M13 21V11M17 19v-6M21 22V10M25 17v-2" stroke="#FF6B00" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-logo" viewBox="175 212 830 830"><path d="M187 968L290 292Q300 232 362 232L740 234C885 236 993 345 993 492C993 620 915 742 802 787L946 966Q972 1022 920 1022L672 1022Q652 1022 640 1006L527 857L628 718L710 748L707 652L925 585L755 552L840 437L708 478L718 300L595 470L487 430L490 525L293 590L462 648L378 772L510 720L472 982Q465 1022 425 1022L230 1022Q182 1022 187 968Z" fill="#FF5C00" stroke="#FF5C00" stroke-width="16" stroke-linejoin="round"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></symbol>
     <symbol id="i-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></symbol>
     <symbol id="i-plus" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></symbol>
@@ -521,6 +523,7 @@
         <p class="hero-sub reveal" style="--d:.1s">Natural-sounding AI that books, confirms and reschedules appointments for your clinic, salon or office — 24/7.</p>
 
         <form class="waitlist reveal" style="--d:.15s" novalidate>
+          <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="email-hero" class="sr-only">Work email</label>
             <input id="email-hero" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required aria-describedby="err-hero">
@@ -784,6 +787,7 @@
         <h2 id="join-title">Stop losing customers to missed calls.</h2>
         <p class="section-lead">Get early access and use Receptly free for the entire beta.</p>
         <form class="waitlist" novalidate>
+          <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="email-final" class="sr-only">Work email</label>
             <input id="email-final" type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required aria-describedby="err-final">
@@ -809,10 +813,10 @@
     </div>
     <div class="socials">
       <!-- TODO: replace with real Receptly profile URLs -->
-      <a href="https://x.com/" target="_blank" rel="noopener" aria-label="Receptly on X (Twitter)">
+      <a href="https://x.com/yasircli" target="_blank" rel="noopener" aria-label="Receptly on X (Twitter)">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.9 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L8.3 3.8H6.5l11.3 16.3z"/></svg>
       </a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Receptly on LinkedIn">
+      <a href="https://www.linkedin.com/yasirrkhn" target="_blank" rel="noopener" aria-label="Receptly on LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
       </a>
     </div>
@@ -828,10 +832,8 @@
 (function () {
   'use strict';
 
-  // Set this to a real endpoint (Formspree, Supabase, your API...) to also POST signups.
-  // Leave empty to store in localStorage only.
-  var WAITLIST_ENDPOINT = '';
-  var STORAGE_KEY = 'receptly_waitlist';
+  // Neon Function that stores signups in Postgres (see api/waitlist.ts).
+  var WAITLIST_ENDPOINT = 'https://br-purple-term-aojugnfc-waitlist.compute.c-2.ap-southeast-1.aws.neon.tech/';
 
   document.body.classList.remove('no-js');
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -912,13 +914,6 @@
 
   /* ----- Waitlist forms ----- */
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-  function getList() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { return []; }
-  }
-  function saveList(list) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) { /* storage unavailable */ }
-  }
-
   document.querySelectorAll('form.waitlist').forEach(function (form) {
     var input = form.querySelector('input[type="email"]');
     var field = form.querySelector('.field');
@@ -940,28 +935,36 @@
       if (!EMAIL_RE.test(email)) { setError('That email doesn’t look quite right.'); input.focus(); return; }
       setError('');
 
-      var list = getList();
-      if (list.some(function (r) { return r.email === email; })) {
-        showToast('You’re already on the list.', 'Sit tight — we’ll be in touch soon.');
-        form.reset();
-        return;
-      }
-      list.push({ email: email, source: form.closest('#join') ? 'final-cta' : 'hero', at: new Date().toISOString() });
-      saveList(list);
-
-      if (WAITLIST_ENDPOINT) {
-        fetch(WAITLIST_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email })
-        }).catch(function () { /* already saved locally */ });
-      }
-
-      form.reset();
-      button.innerHTML = 'You’re in ✓';
+      var honeypot = form.querySelector('input[name="company"]');
+      var source = form.closest('#join') ? 'final-cta' : 'hero';
       button.disabled = true;
-      setTimeout(function () { button.innerHTML = buttonHTML; button.disabled = false; }, 3000);
-      showToast('You’re on the list.', 'We’ll email you the moment your spot opens.');
+      button.textContent = 'Joining…';
+
+      fetch(WAITLIST_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: source, company: honeypot ? honeypot.value : '' })
+      })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) {
+            if (!res.ok || !data.ok) throw data;
+            return data;
+          });
+        })
+        .then(function (data) {
+          form.reset();
+          button.innerHTML = 'You’re in ✓';
+          setTimeout(function () { button.innerHTML = buttonHTML; button.disabled = false; }, 3000);
+          if (data.duplicate) showToast('You’re already on the list.', 'Sit tight — we’ll be in touch soon.');
+          else showToast('You’re on the list.', 'We’ll email you the moment your spot opens.');
+        })
+        .catch(function (err) {
+          button.innerHTML = buttonHTML;
+          button.disabled = false;
+          if (err && err.error === 'invalid_email') setError('That email doesn’t look quite right.');
+          else setError('Couldn’t save your email. Check your connection and try again.');
+          input.focus();
+        });
     });
   });
 })();

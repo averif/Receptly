@@ -1,0 +1,33 @@
+{
+  "name": "receptly",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "migrate": "node --env-file=.env.local scripts/migrate.mjs",
+    "dev": "neon dev",
+    "deploy": "neon deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/averif/Receptly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/averif/Receptly/issues"
+  },
+  "homepage": "https://github.com/averif/Receptly#readme",
+  "private": true,
+  "dependencies": {
+    "@neon/config": "^1.11.3",
+    "@neon/env": "^1.6.15",
+    "@neon/functions": "^0.11.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1",
+    "typescript": "^7.0.2"
+  }
+}
